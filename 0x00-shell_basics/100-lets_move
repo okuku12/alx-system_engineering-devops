@@ -1,0 +1,16 @@
+#!/bin/bash
+# Target directory
+target_dir="/tmp/u"
+
+# Create the target directory if it doesn't exist
+mkdir -p "$target_dir"
+
+# Move files starting with uppercase letter
+for filename in *; do
+    if [[ ${filename:0:1} =~ [A-Z] ]]; then
+        mv "$filename" "$target_dir"
+        echo "Moved '$filename' to '$target_dir'"
+    fi
+done
+
+echo "Finished moving files!"
